@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose";     
 import configs from "../config/config";
 
 function getDatabaseURL(environment: any) {
@@ -13,7 +13,7 @@ function getDatabaseURL(environment: any) {
         return configs.DB_DEV_URL;
     }
   }
-
+ 
   export const connectDatabase = () => {
     const databaseUrl = getDatabaseURL(configs.ENVIRONMENT)
 
@@ -27,9 +27,9 @@ function getDatabaseURL(environment: any) {
             // useFindAndModify: false,
         })
         .then(() => {
-            console.log("Connected to DB");
+            console.log("Connected to DB 😊");
           })
           .catch((error) => {
-            console.log(`${error.name}: ${error.message} ???`);
+            console.log(`${error.name}: ${error.message}`);
           });
   }
