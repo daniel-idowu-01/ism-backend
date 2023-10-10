@@ -1,29 +1,18 @@
-import SideBar from './SideBar'
+import SideBar from '../components/SideBar'
 import React, { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import ProductsPage from './ProductsPage'
-import DashboardPage from './DashboardPage'
 
 const Dashboard = () => {
-
-  const [link, setLink] = useState('/')
 
   return (
     <div>
       <Navbar />
       <section className='flex'>
-        <SideBar 
-        // @ts-ignore
-        setLink={setLink} 
-        />
+        <SideBar />
 
-        {
-          link === '/'
-          ?
-          <DashboardPage />
-          :
-          <ProductsPage />
-        }
+        {/* For the dashboard and product page */}
+        {<Outlet />}
       </section>
     </div>
   )

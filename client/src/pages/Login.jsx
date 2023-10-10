@@ -43,8 +43,10 @@ const Login = () => {
         const data = await response.json();
         setIsLoading(false)
 
-        if(data) {
+        if(data._id) {
           navigate('/dashboard')
+        } else {
+          setError('Invalid name or password')
         }
     }
 
@@ -107,6 +109,10 @@ const Login = () => {
           <Link to='/sign-up' className='hover:underline ml-1'>
             Sign Up
           </Link>
+        </p>
+
+        <p className='text-red-500 text-sm'>
+          {error}
         </p>
       </article>
 
