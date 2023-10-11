@@ -42,7 +42,7 @@ const Register = () => {
         const data = await response.json();
         setIsLoading(false)
 
-        if(data) {
+        if(data._id) {
           navigate('/')
         }
     }

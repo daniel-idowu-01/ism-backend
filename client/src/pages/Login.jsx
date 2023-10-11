@@ -112,7 +112,7 @@ const Login = () => {
         </p>
 
         <p className='text-red-500 text-sm'>
-          {error}
+          {`${error} !!`}
         </p>
       </article>
 
