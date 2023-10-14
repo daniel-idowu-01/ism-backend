@@ -13,7 +13,7 @@ const Login = () => {
    // @ts-ignore
    const [isLoading, setIsLoading] = useState(false)
 
-  const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90'
+  const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90 disabled:cursor-default'
   const forgotPasswordStyle = 'text-secondary text-sm hover:underline hover:cursor-pointer'
   const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-full'
 
@@ -99,7 +99,8 @@ const Login = () => {
           </p>
           <button
            type='submit' 
-           className={btnStyle}>
+           className={btnStyle}
+           disbled={isLoading}>
             {isLoading ? 'Loading...' : 'Sign In'}
           </button>
         </form>
