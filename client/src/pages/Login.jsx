@@ -98,9 +98,9 @@ const Login = () => {
             Forgot Password?
           </p>
           <button
-           type='submit' 
-           className={btnStyle}
-           disbled={isLoading}>
+            type='submit' 
+            disbled={isLoading}
+           className={btnStyle}>
             {isLoading ? 'Loading...' : 'Sign In'}
           </button>
         </form>

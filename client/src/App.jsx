@@ -1,5 +1,5 @@
 import React from 'react'
-import { Login, Register, Dashboard } from './pages'
+import { Login, Register, Dashboard, CreateProduct } from './pages'
 import { DashboardPage, ProductsPage } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ function App() {
             <Route path='/dashboard' element={<DashboardPage />} />
             <Route path='/products' element={<ProductsPage />} />
           </Route>
+          <Route path='/create-product' element={<CreateProduct />} />
         </Routes>
       </BrowserRouter>
     </div>

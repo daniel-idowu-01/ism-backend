@@ -1,17 +1,17 @@
 import React from "react";
 import {
   Chart as ChartJS,
-  LineElement,
+  ArcElement,
   CategoryScale,
   LinearScale,
   PointElement,
   Tooltip,
   Legend
 } from 'chart.js'
-import { Line } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
 ChartJS.register(
-   LineElement,
+   ArcElement,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -19,15 +19,20 @@ ChartJS.register(
   Legend
 )
 
-const LineChartComponent = () => {
+const PieChartComponent = () => {
 
   const data = {
     labels: ['Mon', 'Tue', 'Wed', 'Thur'],
     datasets: [
       {
-        label:'3,6,9,4',
+        label:'Number of Products',
         data: [3,6,9,4],
-        backgroundColor: 'red',
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
+        ],
       }
     ]
   }
@@ -37,19 +42,19 @@ const LineChartComponent = () => {
   }
 
   return (
-    <div className="shadow-md p-10 w-1/2 mx-auto">
-      <p>LineChart</p>
+    <div className="shadow-md p-10 w-full sm:w-1/2 h-fit mx-auto">
+      <p>PieChart</p>
 
       <div>
-        <Line
+        <Pie
         data={data}
         options={options}
         >
-        </Line>
+        </Pie>
       </div>
 
     </div>
   );
 }
 
-export default LineChartComponent;
+export default PieChartComponent;

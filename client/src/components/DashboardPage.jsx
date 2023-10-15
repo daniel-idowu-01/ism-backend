@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BarChartComponent from './BarChart'
-import LineChartComponent from './LineChart'
+import PieChartComponent from './PieChart'
 
 
 const DashboardPage = () => {
@@ -17,14 +17,12 @@ const DashboardPage = () => {
     
   }, [])
 
-  console.log(data)
-
   return (
     <section className='p-10 w-[90%]'>
-      <article className='flex justify-evenly w-full'>
+      <article className='flex flex-col sm:flex-row gap-2 justify-evenly w-full'>
         {
           dataStats.map((card) => (
-            <div className='text-center shadow-md px-4 py-5 rounded-md w-64'>
+            <div className='text-center shadow-md px-4 py-5 rounded-md sm:w-64'>
               <p className='text-xl font-semibold' title={card.title}>{card.title}</p>
               <p className='text-3xl font-extralight'>{card.price}</p>
             </div>
@@ -32,9 +30,9 @@ const DashboardPage = () => {
         }
       </article>
 
-      <article className='w-full flex justify-around gap-4'>
+      <article className='relative top-10 w-full flex flex-col sm:flex-row justify-around gap-4'>
         <BarChartComponent />
-        <LineChartComponent />
+        <PieChartComponent />
       </article>
 
     </section>

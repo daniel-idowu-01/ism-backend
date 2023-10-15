@@ -7,16 +7,13 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  // @ts-ignore
   const [error, setError] = useState(null)
   const [formData, setFormData] = useState({})
-  // @ts-ignore
   const [isLoading, setIsLoading] = useState(false)
 
   const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90'
   const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-full'
 
-  // @ts-ignore
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,7 +22,6 @@ const Register = () => {
   }
 
     // to submit form data
-    // @ts-ignore
     const handleSubmit = async (e) => {
       e.preventDefault();
 
@@ -38,7 +34,7 @@ const Register = () => {
           body: JSON.stringify(formData)
         });
   
-        // @ts-ignore
+    
         const data = await response.json();
         setIsLoading(false)
 
