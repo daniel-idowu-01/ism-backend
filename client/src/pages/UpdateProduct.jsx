@@ -12,6 +12,7 @@ const UpdateProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
   const inputStyle = 'w-full border outline-none px-4 py-2 rounded-md'
 
+  // to update form data when user inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,

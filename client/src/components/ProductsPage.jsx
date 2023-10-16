@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { AiOutlineEdit } from 'react-icons/ai'
+import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
 
 const ProductsPage = () => {
 
@@ -13,7 +13,7 @@ const ProductsPage = () => {
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.log(err))
-  })
+  }, [])
 
   return (
     <section className='p-10 w-[90%]'>
@@ -48,6 +48,13 @@ const ProductsPage = () => {
               >
                 <Link to={`/update/${product._id}`}>
                   <AiOutlineEdit />
+                </Link>
+              </td>
+              <td
+                className='flex justify-center items-center hover:cursor-pointer hover:bg-slate-50 border p-2'
+              >
+                <Link to={`/delete/${product._id}`}>
+                  <AiOutlineDelete />
                 </Link>
               </td>
             </tr>

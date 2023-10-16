@@ -6,18 +6,15 @@ import image from '../assets/image.png'
 const Login = () => {
 
   const navigate = useNavigate();
-
-   // @ts-ignore
-   const [error, setError] = useState(null)
-   const [formData, setFormData] = useState({})
-   // @ts-ignore
-   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [formData, setFormData] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
 
   const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90 disabled:cursor-default'
   const forgotPasswordStyle = 'text-secondary text-sm hover:underline hover:cursor-pointer'
   const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-full'
-
-  // @ts-ignore
+  
+  // to update form data when user inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -26,7 +23,6 @@ const Login = () => {
   }
 
   // to submit form data
-    // @ts-ignore
     const handleSubmit = async (e) => {
       e.preventDefault();
 
@@ -39,7 +35,7 @@ const Login = () => {
           body: JSON.stringify(formData)
         });
   
-        // @ts-ignore
+  
         const data = await response.json();
         setIsLoading(false)
 
