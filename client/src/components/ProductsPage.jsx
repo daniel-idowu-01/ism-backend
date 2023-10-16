@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
 
 const ProductsPage = () => {
-
   
   const [products, setProducts] = useState([])
 
