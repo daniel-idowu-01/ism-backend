@@ -162,7 +162,6 @@ export default class ProductController {
             }
 
             // Update product
-
             const updatedProduct = await Product.findByIdAndUpdate(
                 { _id: id },
                 {
