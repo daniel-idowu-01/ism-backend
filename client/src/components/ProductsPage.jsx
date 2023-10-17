@@ -6,6 +6,8 @@ const ProductsPage = () => {
   
   const [products, setProducts] = useState([])
 
+  const tableHead = 'text-center bg-gray-300 p-3 font-semibold text-left'
+
   // to fetch the products of the user from the database
   useEffect(() => {
     fetch('/api/products')
@@ -23,22 +25,22 @@ const ProductsPage = () => {
           +
         </button>
       </Link>
-      <table className='w-full text-center table-auto'>
+      <table className='text-center w-full border-collapse table-auto'>
         <thead>
           <tr>
-              <th className='font-bold border-4 p-2'>Name</th>
-              <th className='font-bold border-4 p-2'>Sku</th>
-              <th className='font-bold border-4 p-2'>Category</th>
-              <th className='font-bold border-4 p-2'>Quantity</th>
-              <th className='font-bold border-4 p-2'>Price</th>
-              <th className='font-bold border-4 p-2'>Description</th>
-              <th className='font-bold border-4 p-2'></th>
+              <th className={tableHead}>Name</th>
+              <th className={tableHead}>Sku</th>
+              <th className={tableHead}>Category</th>
+              <th className={tableHead}>Quantity</th>
+              <th className={tableHead}>Price</th>
+              <th className={tableHead}>Description</th>
+              <th className={tableHead}></th>
           </tr>
         </thead>
   
         <tbody>
           {products.map(product => (
-            <tr key={product._id}>
+            <tr key={product._id} className='tr'>
               <td className='border p-2'>{product.name}</td>
               <td className='border p-2'>{product.sku}</td>
               <td className='border p-2'>{product.category}</td>

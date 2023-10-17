@@ -21,7 +21,7 @@ const Navbar = () => {
       "text": "Change Password"
     },
     {
-      "link": "logout",
+      "link": "user-logout",
       "text": "Logout"
     },
   ]
@@ -42,7 +42,7 @@ const Navbar = () => {
         console.error(error);
       });
   }, [])
-
+  
   return (
     <section>
       <div className='relative flex items-center justify-between px-20 py-3 shadow-sm'>

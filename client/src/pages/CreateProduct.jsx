@@ -32,9 +32,14 @@ const CreateProduct = () => {
         });
   
     
-        const data = await response.json();
-      setIsLoading(false)
-      navigate('/products')
+      const data = await response.json();
+
+      if (data._id) {
+        setIsLoading(false)
+        navigate('/products')
+      } else {
+        setError('Please fill all fields!')
+      }
   }
 
   return (
@@ -103,6 +108,10 @@ const CreateProduct = () => {
             {isLoading ? 'Loading...' : 'Create Product'}
           </button>
         </form>
+
+        <p className='text-red-500 text-sm'>
+          {error == null ? '' : `${error} !!`}
+        </p>
       </article>
       
       <article
@@ -110,6 +119,7 @@ const CreateProduct = () => {
       >
         <img src={image} alt="" />
       </article>
+
       </section>
   )
 }

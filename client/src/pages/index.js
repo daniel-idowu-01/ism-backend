@@ -1,5 +1,6 @@
 import Home from "./Home";
 import Login from "./Login";
+import LogOut from "./LogOut";
 import Product from './Product';
 import Register from "./Register";
 import Dashboard from "./Dashboard";
@@ -9,5 +10,5 @@ import UpdateProduct from "./UpdateProduct";
 import DeleteProduct from "./DeleteProduct";
 
 export {
-    Home, Login, Register, Product, Dashboard, UpdateUser, CreateProduct, UpdateProduct, DeleteProduct
+    Home, Login, LogOut, Register, Product, Dashboard, UpdateUser, CreateProduct, UpdateProduct, DeleteProduct
 }

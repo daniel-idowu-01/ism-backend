@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply alternating styles to the table rows */
+.tr:nth-child(even) {
+    @apply bg-gray-100;
+}
