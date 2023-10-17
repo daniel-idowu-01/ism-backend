@@ -24,18 +24,21 @@ const ProductsPage = () => {
         </button>
       </Link>
       <table className='w-full text-center table-auto'>
-        <tr>
-            <th className='font-bold border-4 p-2'>Name</th>
-            <th className='font-bold border-4 p-2'>Sku</th>
-            <th className='font-bold border-4 p-2'>Category</th>
-            <th className='font-bold border-4 p-2'>Quantity</th>
-            <th className='font-bold border-4 p-2'>Price</th>
-            <th className='font-bold border-4 p-2'>Description</th>
-            <th className='font-bold border-4 p-2'></th>
-        </tr>
+        <thead>
+          <tr>
+              <th className='font-bold border-4 p-2'>Name</th>
+              <th className='font-bold border-4 p-2'>Sku</th>
+              <th className='font-bold border-4 p-2'>Category</th>
+              <th className='font-bold border-4 p-2'>Quantity</th>
+              <th className='font-bold border-4 p-2'>Price</th>
+              <th className='font-bold border-4 p-2'>Description</th>
+              <th className='font-bold border-4 p-2'></th>
+          </tr>
+        </thead>
   
+        <tbody>
           {products.map(product => (
-            <tr>
+            <tr key={product._id}>
               <td className='border p-2'>{product.name}</td>
               <td className='border p-2'>{product.sku}</td>
               <td className='border p-2'>{product.category}</td>
@@ -58,6 +61,7 @@ const ProductsPage = () => {
               </td>
             </tr>
           ))}
+        </tbody>
       </table>
     </section>
   )

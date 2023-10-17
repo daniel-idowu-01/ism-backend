@@ -8,8 +8,8 @@ const SideBar = () => {
         <div className='text-center flex flex-col gap-5 pt-5'>
 
             {
-                sideBarItems.map((item) => (
-                    <Link to={item.link}>
+                sideBarItems.map((item, index) => (
+                    <Link to={item.link} key={index}>
                         <article
                          className='mx-auto p-2 hover:cursor-pointer hover:text-secondary' 
                          >
