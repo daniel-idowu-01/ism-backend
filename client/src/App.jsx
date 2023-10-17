@@ -1,7 +1,9 @@
 import React from 'react'
 import { DashboardPage, ProductsPage } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Login, LogOut, Register, Dashboard, CreateProduct, UpdateProduct, DeleteProduct, UpdateUser } from './pages'
+import
+{ Login, LogOut, Register, Dashboard, CreateProduct, UpdateProduct, DeleteProduct, UpdateUser, ChangePassword }
+  from './pages'
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
           <Route path='/delete/:id' element={<DeleteProduct />} />
           <Route path='/update-profile' element={<UpdateUser />} />
           <Route path='/user-logout' element={<LogOut />} />
+          <Route path='/change-password' element={<ChangePassword />} />
         </Routes>
       </BrowserRouter>
     </div>

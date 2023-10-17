@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import image from '../assets/image.png'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const UpdateUser = () => {
+const ChangePassword = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -24,8 +24,8 @@ const UpdateUser = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
 
-      setIsLoading(true)
-      const response = await fetch(`/api/users/updateuser`, {
+      setIsLoading(true);
+      const response = await fetch('/api/users/changepassword', {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -34,70 +34,42 @@ const UpdateUser = () => {
         });
   
     
+      setIsLoading(false)
+      navigate('/') 
       const data = await response.json();
-      if (data._id) {
-        setIsLoading(false)
-        navigate('/products')
-      } else {
-        setIsLoading(false)
-        setError('Please fill all fields!')
-      }
   }
 
   return (
     <section className='m-0 flex flex-col sm:flex-row justify-between h-screen'>
       <article className='sm:w-1/3 flex flex-col gap-10 p-10'>
-        <p className='text-2xl text-center mb-5 font-semibold'>Update Profile</p>
+        <p className='text-2xl text-center mb-5 font-semibold'>Change Password</p>
         <form
           className='flex flex-col gap-5'
           onSubmit={handleSubmit}>
         
           <input 
             className={inputStyle} 
-            type="text"
-            name="name"
-            id="name"
-            placeholder='Username'
+            type="password"
+            name="oldPassword"
+            id="oldPassword"
+            placeholder='Old Password'
             onChange={handleChange}
           />
 
           <input 
             className={inputStyle} 
-            type="email"
-            name="email"
-            id="email"
-            placeholder='Email'
-            onChange={handleChange}
-          />
-
-          <input
-            type="file"
-            name="photo"
-            id="photo"
-          />
-            
-          <input 
-            className={inputStyle} 
-            type="number"
-            name="phone"
-            id="phone"
-            placeholder='Phone'
-            onChange={handleChange}
-          />
-      
-          <input 
-            className={inputStyle} 
-            type="text"
-            name="bio"
-            id="bio"
-            placeholder='Bio'
+            type="password"
+            name="password"
+            id="password"
+            placeholder='New Password'
             onChange={handleChange}
           />
 
           <button
+            type='submit'
             disabled={isLoading}
             className='bg-secondary text-white rounded-md py-2 hover:bg-opacity-90'>
-            {isLoading ? 'Loading...' : 'Update Product'}
+            {isLoading ? 'Loading...' : 'Change Password'}
           </button>
         </form>
 
@@ -115,4 +87,4 @@ const UpdateUser = () => {
   )
 }
 
-export default UpdateUser
+export default ChangePassword

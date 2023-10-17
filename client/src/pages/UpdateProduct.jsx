@@ -39,6 +39,7 @@ const UpdateProduct = () => {
         setIsLoading(false)
         navigate('/products')
       } else {
+        setIsLoading(false)
         setError('Please fill all fields!')
       }
   }
@@ -104,6 +105,7 @@ const UpdateProduct = () => {
           />
 
           <button
+            type='submit'
             disabled={isLoading}
             className='bg-secondary text-white rounded-md py-2 hover:bg-opacity-90'>
             {isLoading ? 'Loading...' : 'Update Product'}

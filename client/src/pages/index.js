@@ -8,7 +8,18 @@ import UpdateUser from "./UpdateUser";
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
 import DeleteProduct from "./DeleteProduct";
+import ChangePassword from "./ChangePassword";
 
 export {
-    Home, Login, LogOut, Register, Product, Dashboard, UpdateUser, CreateProduct, UpdateProduct, DeleteProduct
+    Home,
+    Login,
+    LogOut,
+    Register,
+    Product,
+    Dashboard,
+    UpdateUser,
+    CreateProduct,
+    UpdateProduct,
+    DeleteProduct,
+    ChangePassword
 }

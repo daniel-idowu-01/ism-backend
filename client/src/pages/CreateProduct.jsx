@@ -38,6 +38,7 @@ const CreateProduct = () => {
         setIsLoading(false)
         navigate('/products')
       } else {
+        setIsLoading(false)
         setError('Please fill all fields!')
       }
   }
