@@ -60,14 +60,6 @@ const UpdateProduct = () => {
             placeholder='Product Name'
             onChange={handleChange}
           />
-          <input 
-          className={inputStyle} 
-            type="text"
-            name="sku"
-            id="Sku"
-            placeholder='Sku'
-            onChange={handleChange}
-          />
     
           <input 
             className={inputStyle} 

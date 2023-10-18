@@ -4,9 +4,16 @@ import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
 
 const ProductsPage = () => {
   
+  const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([])
 
   const tableHead = 'text-center bg-gray-300 p-3 font-semibold text-left'
+
+  // Calculate the total value
+  const calculateTotal = () => {
+    const sum = products.reduce((accumulator, product) => accumulator + parseInt(product.price), 0);
+    setTotalPrice(sum);
+  };
 
   // to fetch the products of the user from the database
   useEffect(() => {
@@ -15,6 +22,10 @@ const ProductsPage = () => {
       .then(data => setProducts(data))
       .catch(err => console.log(err))
   }, [])
+
+  useEffect(() => {
+    calculateTotal();
+  }, [products]);
 
   return (
     <section className='p-10 w-[90%]'>
@@ -65,6 +76,8 @@ const ProductsPage = () => {
           ))}
         </tbody>
       </table>
+
+      {totalPrice}
     </section>
   )
 }
