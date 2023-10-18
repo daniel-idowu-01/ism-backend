@@ -1,6 +1,7 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom';
+import { ProductProvider } from './context/Products';
 import { DashboardPage, ProductsPage } from './components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import
 { Login, LogOut, Register, Dashboard, CreateProduct, UpdateProduct, DeleteProduct, UpdateUser, ChangePassword }
   from './pages'
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div className='font-mono'>
-      <BrowserRouter>
+      <ProductProvider>
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/sign-up' element={<Register />} />
@@ -24,7 +25,7 @@ function App() {
           <Route path='/user-logout' element={<LogOut />} />
           <Route path='/change-password' element={<ChangePassword />} />
         </Routes>
-      </BrowserRouter>
+      </ProductProvider>
     </div>
   )
 }

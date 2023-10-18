@@ -1,22 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import BarChartComponent from './BarChart'
 import PieChartComponent from './PieChart'
+import ProductContext from '../context/Products'
 
 
 const DashboardPage = () => {
-  const [data, setData] = useState([])
 
-  useEffect(() => {
+  const { totalPrice, totalQuantity, numberOfProducts } = useContext(ProductContext);
 
-    const fetchData = async () => {
-    const response = await fetch('http://localhost:3000/api/products')
-    const data = await response.json()
-    }
-
-  fetchData();
-    
-  }, [])
-
+  const dataStats = [
+  {
+    "title": 'Total Products',
+    "price": numberOfProducts,
+    icon: ''
+  },
+  {
+    "title": 'Total Price',
+    "price": totalPrice,
+    icon: ''
+  },
+  {
+    "title": 'Total Quantity',
+    "price": totalQuantity,
+    icon: ''
+  },
+]
+  
   return (
     <section className='p-10 w-[90%]'>
       <article className='flex flex-col sm:flex-row gap-2 justify-evenly w-full'>
@@ -41,20 +50,4 @@ const DashboardPage = () => {
 
 export default DashboardPage
 
-const dataStats = [
-  {
-    "title": 'Total Products',
-    "price": "20",
-    icon: ''
-  },
-  {
-    "title": 'Total Price',
-    "price": "120",
-    icon: ''
-  },
-  {
-    "title": 'Total Quantity',
-    "price": "20",
-    icon: ''
-  },
-]
+

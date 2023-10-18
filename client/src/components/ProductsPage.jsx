@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
+import ProductContext from '../context/Products'
 
 const ProductsPage = () => {
   
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [products, setProducts] = useState([])
+
+  const { products, setProducts, totalPrice, calculateTotalPrice, calculateTotalQuantity } =  useContext(ProductContext);
 
   const tableHead = 'text-center bg-gray-300 p-3 font-semibold text-left'
-
-  // Calculate the total value
-  const calculateTotal = () => {
-    const sum = products.reduce((accumulator, product) => accumulator + parseInt(product.price), 0);
-    setTotalPrice(sum);
-  };
 
   // to fetch the products of the user from the database
   useEffect(() => {
@@ -24,7 +19,8 @@ const ProductsPage = () => {
   }, [])
 
   useEffect(() => {
-    calculateTotal();
+    calculateTotalPrice();
+    calculateTotalQuantity();
   }, [products]);
 
   return (
