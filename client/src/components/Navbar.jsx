@@ -8,7 +8,7 @@ const Navbar = () => {
   const [username, setUsername] = useState('')
   const [photo, setPhoto] = useState('')
   const [dropDown, setDropDown] = useState(false)
-  const DROPDOWN_STYLE = "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+  const DROPDOWN_STYLE = "z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
   
   // dropdown menu items
   const items = [
@@ -45,9 +45,9 @@ const Navbar = () => {
   
   return (
     <section>
-      <div className='relative flex items-center justify-between px-20 py-3 shadow-sm'>
+      <div className='relative flex items-center justify-between px-10 sm:px-20 py-3 shadow-sm'>
         <h1 className='text-4xl font-bold'>
-          PLUS
+          PLUS<sup>+</sup>
         </h1>
 
         <div className='relative group hover:cursor-pointer'>

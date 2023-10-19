@@ -5,8 +5,7 @@ import ProductContext from '../context/Products'
 
 const ProductsPage = () => {
   
-
-  const { products, setProducts, totalPrice, calculateTotalPrice, calculateTotalQuantity } =  useContext(ProductContext);
+  const { products, setProducts, calculateTotalPrice, calculateTotalQuantity } =  useContext(ProductContext);
 
   const tableHead = 'text-center bg-gray-300 p-3 font-semibold text-left'
 
@@ -22,6 +21,8 @@ const ProductsPage = () => {
     calculateTotalPrice();
     calculateTotalQuantity();
   }, [products]);
+
+  console.log(products)
 
   return (
     <section className='p-10 w-[90%]'>
@@ -73,7 +74,6 @@ const ProductsPage = () => {
         </tbody>
       </table>
 
-      {totalPrice}
     </section>
   )
 }

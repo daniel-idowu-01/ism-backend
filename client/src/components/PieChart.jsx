@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import ProductContext from '../context/Products'
 import {
   Chart as ChartJS,
   ArcElement,
@@ -21,12 +22,26 @@ ChartJS.register(
 
 const PieChartComponent = () => {
 
+  const { products } = useContext(ProductContext);
+
+  // get the product names from the table and store it in a variable
+  const productNames = []
+  products.map(product => (
+    productNames.push(product.name)
+  ))
+
+  // get the product quantity from the table and store it in a variable
+  const productQuantity = []
+  products.map(product => (
+    productQuantity.push(product.quantity)
+  ))
+
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thur'],
+    labels: productNames,
     datasets: [
       {
-        label:'Number of Products',
-        data: [3,6,9,4],
+        label:'Quantity of Products',
+        data: productQuantity,
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -43,7 +58,7 @@ const PieChartComponent = () => {
 
   return (
     <div className="shadow-md p-10 w-full sm:w-1/2 h-fit mx-auto">
-      <p>PieChart</p>
+      <p className="text-xl">Most Avaliable Products</p>
 
       <div>
         <Pie
