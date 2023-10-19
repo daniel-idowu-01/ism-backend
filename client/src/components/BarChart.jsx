@@ -40,7 +40,7 @@ const BarChartComponent = () => {
       {
         label:'Product Prices',
         data: productPrices,
-        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        backgroundColor: 'rgba(54, 162, 235, 0.6)', 
       }
     ]
   }
