@@ -34,14 +34,13 @@ const BarChartComponent = () => {
     productPrices.push(product.price)
   ))
 
-
   const data = {
     labels: productNames,
     datasets: [
       {
         label:'Product Prices',
         data: productPrices,
-        backgroundColor: 'lightblue',
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
       }
     ]
   }
@@ -51,7 +50,7 @@ const BarChartComponent = () => {
   }
 
   return (
-    <div className="shadow-md p-10 w-full sm:w-1/2 h-fit mx-auto">
+    <div className="shadow-md p-10 w-full h-fit mx-auto">
       <p className="text-xl">Price of the Products</p>
 
       <div className="relative top-5">

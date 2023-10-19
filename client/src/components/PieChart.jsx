@@ -36,6 +36,7 @@ const PieChartComponent = () => {
     productQuantity.push(product.quantity)
   ))
 
+
   const data = {
     labels: productNames,
     datasets: [
@@ -57,7 +58,7 @@ const PieChartComponent = () => {
   }
 
   return (
-    <div className="shadow-md p-10 w-full sm:w-1/2 h-fit mx-auto">
+    <div className="shadow-md p-10 w-full h-fit mx-auto">
       <p className="text-xl">Most Avaliable Products</p>
 
       <div>

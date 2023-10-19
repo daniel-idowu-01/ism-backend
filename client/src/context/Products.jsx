@@ -22,9 +22,14 @@ export function ProductProvider({ children }) {
     const sum = products.reduce((accumulator, product) => accumulator + parseInt(product.quantity), 0);
     setTotalQuantity(sum);
   };
+
+  // to get the most expensive product
+  const maxPrice = products.reduce(function(max, product) {
+  return Math.max(max, product.price);
+  }, -Infinity);
     
     return(
-        <ProductContext.Provider value={{ products, setProducts, calculateTotalPrice, calculateTotalQuantity, totalQuantity, totalPrice, numberOfProducts }}>
+        <ProductContext.Provider value={{ maxPrice, products, setProducts, calculateTotalPrice, calculateTotalQuantity, totalQuantity, totalPrice, numberOfProducts }}>
             {children}
         </ProductContext.Provider>
     )

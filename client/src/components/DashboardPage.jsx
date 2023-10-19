@@ -8,7 +8,15 @@ import { IoMdCart } from 'react-icons/io'
 
 const DashboardPage = () => {
 
-  const { totalPrice, totalQuantity, numberOfProducts } = useContext(ProductContext);
+  const { maxPrice, setProducts, totalPrice, totalQuantity, numberOfProducts } = useContext(ProductContext);
+
+  // to fetch the products of the user from the database
+  useEffect(() => {
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(err => console.log(err))
+  }, [])
 
   const dataStats = [
   {
@@ -47,10 +55,20 @@ const DashboardPage = () => {
         }
       </article>
 
+      <article className='relative'>
+        <section className='flex items-start justify-between shadow-md px-4 py-5 rounded-md sm:w-64'>
+          <div className=''>
+            <p className='opacity-80 font-semibold'>Most Expensive Product</p>
+            <p className='text-3xl'>{maxPrice}</p>
+          </div>
+        </section>
+      </article>
+
       <article className='relative top-10 w-full flex flex-col sm:flex-row justify-around gap-4'>
         <BarChartComponent />
         <PieChartComponent />
       </article>
+
 
     </section>
   )
