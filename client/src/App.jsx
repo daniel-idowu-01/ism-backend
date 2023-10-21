@@ -4,12 +4,12 @@ import { ProductProvider } from './context/Products';
 import { DashboardPage, ProductsPage } from './components';
 import
 { Login, LogOut, Register, Dashboard, CreateProduct, UpdateProduct, DeleteProduct, UpdateUser, ChangePassword }
-  from './pages'
+from './pages'
 
 function App() {
 
   return (
-    <div className='font-mono'>
+    <div className='app'>
       <ProductProvider>
         <Routes>
           <Route path='/' element={<Login />} />

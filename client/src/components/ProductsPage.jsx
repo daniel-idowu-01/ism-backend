@@ -21,7 +21,6 @@ const ProductsPage = () => {
     calculateTotalPrice();
     calculateTotalQuantity();
   }, [products]);
-
   console.log(products)
 
   return (
@@ -40,7 +39,7 @@ const ProductsPage = () => {
               <th className={tableHead}>Sku</th>
               <th className={tableHead}>Category</th>
               <th className={tableHead}>Quantity</th>
-              <th className={tableHead}>Price</th>
+            <th className={tableHead}>Price($)</th>
               <th className={tableHead}>Description</th>
               <th className={tableHead}></th>
           </tr>

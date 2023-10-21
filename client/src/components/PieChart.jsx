@@ -58,7 +58,7 @@ const PieChartComponent = () => {
   }
 
   return (
-    <div className="shadow-md p-10 w-full h-fit mx-auto">
+    <div className="bg-white shadow-sm p-10 w-full h-fit mx-auto">
       <p className="text-xl">Most Avaliable Products</p>
 
       <div>

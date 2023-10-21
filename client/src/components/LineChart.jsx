@@ -2,24 +2,24 @@ import React, { useContext } from "react";
 import ProductContext from '../context/Products'
 import {
   Chart as ChartJS,
-  BarElement,
+  LineElement,
   CategoryScale,
   LinearScale,
   Tooltip,
   Legend
 } from 'chart.js'
-import { Bar } from "react-chartjs-2";
+import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
-   BarElement,
+   LineElement,
   CategoryScale,
   LinearScale,
   Tooltip,
   Legend
 )
 
-const BarChartComponent = () => {
-
+const LineChartComponent = () => {
+  
   const { products } = useContext(ProductContext);
 
   // get the product names from the table and store it in a variable
@@ -50,20 +50,15 @@ const BarChartComponent = () => {
   }
 
   return (
-    <div className="bg-white shadow-sm p-10 w-full h-fit mx-auto">
-      <p className="text-xl">Price of the Products</p>
+    <div>
+      <p>Hello</p>
 
-      <div className="relative top-5">
-        <Bar
-        className=" border-2 p-2 "
-        data={data}
+      <Line
         options={options}
-        >
-        </Bar>
-      </div>
-
+        data={data}
+      />
     </div>
   );
 }
 
-export default BarChartComponent;
+export default LineChartComponent;
