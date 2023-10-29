@@ -28,9 +28,51 @@ export function ProductProvider({ children }) {
   const maxPrice = products.reduce(function(max, product) {
   return Math.max(max, product.price);
   }, -Infinity);
+
+  //////////////////
+  function getTotalPricePerCategory(products) {
+    // Create an object to store the total price for each category.
+    const totalPricesPerCategory = {};
+
+    // Iterate over the array and add the price of each product to the total price for the corresponding category.
+    for (const product of products) {
+      const category = product.category;
+      const price = product.price;
+
+      if (!totalPricesPerCategory.hasOwnProperty(category)) {
+        totalPricesPerCategory[category] = 0;
+      }
+
+      totalPricesPerCategory[category] += price;
+    } 
+
+    // Return the object containing the total price for each category.
+    return totalPricesPerCategory;
+  }
+
+   //////////////////
+  function getTotalQuantityPerCategory(products) {
+    // Create an object to store the total quantity for each category.
+    const totalQuantityPerCategory = {};
+
+    // Iterate over the array and add the quantity of each product to the total quantity for the corresponding category.
+    for (const product of products) {
+      const category = product.category;
+      const quantity = product.quantity;
+
+      if (!totalQuantityPerCategory.hasOwnProperty(category)) {
+        totalQuantityPerCategory[category] = 0;
+      }
+
+      totalQuantityPerCategory[category] += quantity;
+    } 
+
+    // Return the object containing the total price for each category.
+    return totalQuantityPerCategory;
+  }
     
     return(
-        <ProductContext.Provider value={{ maxPrice, products, setProducts, calculateTotalPrice, calculateTotalQuantity, totalQuantity, totalPrice, numberOfProducts, showSideBar, setShowSideBar }}>
+        <ProductContext.Provider value={{ maxPrice, products, setProducts, calculateTotalPrice, calculateTotalQuantity, totalQuantity, totalPrice, numberOfProducts, showSideBar, setShowSideBar, getTotalPricePerCategory, getTotalQuantityPerCategory }}>
             {children}
         </ProductContext.Provider>
     )

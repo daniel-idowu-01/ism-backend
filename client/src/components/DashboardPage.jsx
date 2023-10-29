@@ -43,7 +43,9 @@ const DashboardPage = () => {
 ]
   
   return (
-    <section className={`${showSideBar ? 'w-[90%]' : 'w-full'} p-10 sm:p-20 bg-slate-50`}>
+    <section
+      className={`${showSideBar ? 'w-[90%]' : 'w-full'} flex flex-col gap-3  p-5 sm:p-10 bg-slate-50`}
+    >
       <article className='flex flex-col sm:flex-row gap-3 justify-between w-full'>
         {/* dashboard info stats */}
         {
@@ -62,12 +64,12 @@ const DashboardPage = () => {
       </article>
 
       <LineChartComponent />
-      <article className='relative top-10 w-full flex flex-col sm:flex-row justify-around gap-4'>
+      <article className='w-full flex flex-col sm:flex-row justify-around gap-4'>
+        <BarChartComponent /> 
+
         <div>
           <PieChartComponent />
         </div>
-
-        <BarChartComponent />
       </article>
 
 

@@ -20,27 +20,29 @@ ChartJS.register(
 
 const LineChartComponent = () => {
   
-  const { products } = useContext(ProductContext);
+  const { products, getTotalPricePerCategory, getTotalQuantityPerCategory } = useContext(ProductContext);
+  
+  const totalPricesPerCategory = getTotalPricePerCategory(products);
+  const totalQuantityPerCategory = getTotalQuantityPerCategory(products);
 
   // get the product names from the table and store it in a variable
-  const productNames = []
+  const productCategory = []
   products.map(product => (
-    productNames.push(product.name)
-  ))
-
-  // get the product prices from the table and store it in a variable
-  const productPrices = []
-  products.map(product => (
-    productPrices.push(product.price)
+    productCategory.push(product.category)
   ))
 
   const data = {
-    labels: productNames,
+    labels: productCategory,
     datasets: [
       {
-        label:'Product Prices',
-        data: productPrices,
+        label:'Category Prices',
+        data: totalPricesPerCategory,
         backgroundColor: 'rgba(54, 162, 235, 0.6)', 
+      },
+      {
+        label:'Category Quantity',
+        data: totalQuantityPerCategory,
+        backgroundColor: 'red', 
       }
     ]
   }
@@ -50,7 +52,7 @@ const LineChartComponent = () => {
   }
 
   return (
-    <div>
+    <div className="bg-white shadow-sm p-5 w-full h-fit mx-auto">
       <p>Hello</p>
 
       <Line
