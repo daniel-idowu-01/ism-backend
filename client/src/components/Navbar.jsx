@@ -1,14 +1,17 @@
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import ProductContext from '../context/Products'
+import React, { useEffect, useState, useContext } from 'react'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 
 const Navbar = () => {
 
-  const [username, setUsername] = useState('')
   const [photo, setPhoto] = useState('')
+  const [username, setUsername] = useState('')
   const [dropDown, setDropDown] = useState(false)
   const DROPDOWN_STYLE = "z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+
+  const { showSideBar, setShowSideBar } = useContext(ProductContext);
   
   // dropdown menu items
   const items = [
@@ -46,6 +49,12 @@ const Navbar = () => {
   return (
     <section>
       <div className='relative flex items-center justify-between px-10 sm:px-20 py-3 shadow-sm'>
+        <span
+          onClick={() => setShowSideBar(!showSideBar)}
+          className="sm:hidden material-symbols-outlined">
+          menu
+        </span>
+        
         <h1 className='text-4xl font-bold'>
           PLUS<sup>+</sup>
         </h1>

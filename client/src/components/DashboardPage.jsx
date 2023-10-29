@@ -9,7 +9,7 @@ import { IoMdCart } from 'react-icons/io'
 
 const DashboardPage = () => {
 
-  const { maxPrice, setProducts, totalPrice, totalQuantity, numberOfProducts } = useContext(ProductContext);
+  const { showSideBar, maxPrice, setProducts, totalPrice, totalQuantity, numberOfProducts } = useContext(ProductContext);
 
   // to fetch the products of the user from the database
   useEffect(() => {
@@ -43,7 +43,7 @@ const DashboardPage = () => {
 ]
   
   return (
-    <section className='p-10 sm:p-20 w-[90%] bg-slate-50'>
+    <section className={`${showSideBar ? 'w-[90%]' : 'w-full'} p-10 sm:p-20 bg-slate-50`}>
       <article className='flex flex-col sm:flex-row gap-3 justify-between w-full'>
         {/* dashboard info stats */}
         {
@@ -63,7 +63,10 @@ const DashboardPage = () => {
 
       <LineChartComponent />
       <article className='relative top-10 w-full flex flex-col sm:flex-row justify-around gap-4'>
-        <PieChartComponent />
+        <div>
+          <PieChartComponent />
+        </div>
+
         <BarChartComponent />
       </article>
 

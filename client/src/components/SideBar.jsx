@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ProductContext from '../context/Products'
 import { Link } from 'react-router-dom'
 
 // @ts-ignore
 const SideBar = () => {
+
+    const { showSideBar } = useContext(ProductContext);
 
     // sidebar links
     const sideBarItems = [
@@ -19,7 +22,7 @@ const SideBar = () => {
     ]
     
   return (
-    <nav className='sm:w-[10%] h-screen border-r border-black border-opacity-10'>
+    <nav className={`${showSideBar ? 'w-auto' : 'w-[0%]'} sm:w-auto h-screen border-r border-black border-opacity-10`}>
         <div className='text-center flex flex-col gap-5 pt-5'>
 
             {

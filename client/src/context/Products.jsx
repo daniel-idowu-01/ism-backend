@@ -5,11 +5,12 @@ const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
 
-    const [products, setProducts] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0)
-    const [totalQuantity, setTotalQuantity] = useState(0)
+  const [showSideBar, setShowSideBar] = useState(false)
+  const [products, setProducts] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0)
+  const [totalQuantity, setTotalQuantity] = useState(0)
 
-    const numberOfProducts = products.length;
+  const numberOfProducts = products.length;
 
     // Calculate the total price
   const calculateTotalPrice = () => {
@@ -29,7 +30,7 @@ export function ProductProvider({ children }) {
   }, -Infinity);
     
     return(
-        <ProductContext.Provider value={{ maxPrice, products, setProducts, calculateTotalPrice, calculateTotalQuantity, totalQuantity, totalPrice, numberOfProducts }}>
+        <ProductContext.Provider value={{ maxPrice, products, setProducts, calculateTotalPrice, calculateTotalQuantity, totalQuantity, totalPrice, numberOfProducts, showSideBar, setShowSideBar }}>
             {children}
         </ProductContext.Provider>
     )
