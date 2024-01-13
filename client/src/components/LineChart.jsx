@@ -53,7 +53,7 @@ const LineChartComponent = () => {
 
   return (
     <div className="bg-white shadow-sm p-5 w-full h-fit mx-auto">
-      <p>Hello</p>
+      <p>Total Price And Quantity Per Category</p>
 
       <Line
         options={options}

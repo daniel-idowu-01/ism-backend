@@ -12,6 +12,8 @@ const Navbar = () => {
   const DROPDOWN_STYLE = "z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
 
   const { showSideBar, setShowSideBar } = useContext(ProductContext);
+
+  const token = JSON.parse(localStorage.getItem('token'))
   
   // dropdown menu items
   const items = [
@@ -36,7 +38,9 @@ const Navbar = () => {
 
   // to get user's username from the database
   useEffect(() => {
-    axios.get(`/api/users/getuser`)
+    axios.get(`https://plus-inventory.onrender.com/api/users/getuser`, {
+      Authorization: `Bearer ${token}`
+    })
     .then((response) => {
       setUsername(response.data.name);
       setPhoto(response.data.photo)

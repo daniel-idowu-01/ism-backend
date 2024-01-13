@@ -10,9 +10,9 @@ const Login = () => {
   const [formData, setFormData] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
-  const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90 disabled:cursor-default'
+  const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90 disabled:cursor-default w-[80%]'
   const forgotPasswordStyle = 'text-secondary text-sm hover:underline hover:cursor-pointer'
-  const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-full'
+  const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-[80%]'
   
   // to update form data when user inputs
   const handleChange = (e) => {
@@ -27,23 +27,36 @@ const Login = () => {
       e.preventDefault();
 
       setIsLoading(true)
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('https://plus-inventory.onrender.com/api/users/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(formData)
-        });
-  
-  
+      });
+      
+      if (response.status === 200) {
         const data = await response.json();
         setIsLoading(false)
+        localStorage.setItem('accessToken', JSON.stringify(data.token))
+        // To fetch login status from backend for auth
+        const authorizationResponse = await fetch("/api/users/loggedin", {
+          method: "GET"
+        });
 
-        if(data._id) {
-          navigate('/dashboard')
+        // Check if the authorization request was successful.
+        if (authorizationResponse.status === 200) {
+          const responseData = await authorizationResponse.json();
+          // The user is now logged in and authorized.
+          console.log(responseData)
         } else {
-          setError('Invalid name or password')
+          // Handle the authorization failure.
+          console.log(authorizationResponse.status)
         }
+        navigate('/dashboard')
+      }
+  
+        /* rnd_u48JT9mGjXD9moTCwMbwp05R2CIH */
     }
 
   return (

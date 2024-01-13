@@ -11,7 +11,9 @@ const ProductsPage = () => {
 
   // to fetch the products of the user from the database
   useEffect(() => {
-    fetch('/api/products')
+    fetch('https://plus-inventory.onrender.com/api/products', {
+      Authorization: 'Bearer rnd_u48JT9mGjXD9moTCwMbwp05R2CIH'
+    })
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.log(err))
@@ -21,7 +23,6 @@ const ProductsPage = () => {
     calculateTotalPrice();
     calculateTotalQuantity();
   }, [products]);
-  console.log(products)
 
   return (
     <section className='p-10 w-[90%]'>

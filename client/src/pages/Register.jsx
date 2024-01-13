@@ -11,8 +11,8 @@ const Register = () => {
   const [formData, setFormData] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
-  const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90'
-  const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-full'
+  const btnStyle = 'bg-secondary text-white py-2 rounded-md hover:opacity-90 w-[80%]'
+  const inputStyle = 'border block bg-transparent outline-none px-3 py-2 rounded-md w-[80%]'
 
   // to update form data when user inputs
   const handleChange = (e) => {

@@ -1,7 +1,6 @@
 import Home from "./Home";
 import Login from "./Login";
 import LogOut from "./LogOut";
-import Product from './Product';
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import UpdateUser from "./UpdateUser";
@@ -15,7 +14,6 @@ export {
     Login,
     LogOut,
     Register,
-    Product,
     Dashboard,
     UpdateUser,
     CreateProduct,

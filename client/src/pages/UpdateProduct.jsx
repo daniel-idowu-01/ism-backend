@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useState } from 'react'
 import image from '../assets/image.png'
+import data from '../data/categoryData'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const UpdateProduct = () => {
@@ -61,14 +62,13 @@ const UpdateProduct = () => {
             onChange={handleChange}
           />
     
-          <input 
-            className={inputStyle} 
-            type="text"
-            name="category"
-            id="category"
-            placeholder='Category'
-            onChange={handleChange}
-          />
+          <select name="category" id="category" className={inputStyle} onChange={handleChange}>
+            <option value="" disabled>Select Category</option>
+            {data.category.map((item) => (
+              <option value={item.value}>{item.title}</option>
+            ))}
+          </select>
+
           <input 
           className={inputStyle} 
             type="number"
